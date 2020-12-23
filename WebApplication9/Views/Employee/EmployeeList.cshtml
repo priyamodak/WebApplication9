@@ -1,0 +1,58 @@
+﻿@model  List<WebApplication9.Context.Admin>
+@{
+    ViewBag.Title = "EmployeeList";
+}
+<br />
+
+<script src="~/Scripts/emp.js"></script>
+
+
+
+<h3 style="text-align:center"><b>Information Of Client</b></h3>
+<br />
+@using (Html.BeginForm("EmployeeList", "Employee", FormMethod.Post))
+{
+
+    <table class="table table-hover">
+        <tr>
+            <th style="background-color: #09b7c4;">Employee Name</th>
+            <th style="background-color: #09b7c4;">Client Name</th>
+            <th style="background-color: #09b7c4;">Amount</th>
+            <th style="background-color: #09b7c4;">Date</th>
+            <th style="background-color: #09b7c4;">Purchased Item</th>
+            <th style="background-color: #09b7c4;">Bill Photo</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.EmployeeName</td>
+                <td>@item.Client</td>
+                <td>@item.Amount</td>
+                <td>@item.Date</td>
+                <td>@item.PurchasedItem</td>
+                <td>@item.Bill</td>
+                <td>
+                    <a class="btn btn-primary" href=@Url.Action("Employee", new { item.ID, item.EmployeeName, item.Client, item.Amount, item.Date, item.PurchasedItem, item.Bill })>Edit</a>
+                    <a class="btn btn-danger" href="@Url.Action("Delete", new { item.ID })">Delete</a>
+                </td>
+
+            </tr>
+        }
+        @*<tr>
+            <td></td>
+            <td></td>
+            <td>
+                <input type="submit" name="btnExportLicensing" style="width:140px;" value="Export to Excel" id="exportLicensing" class="button" />
+            </td>
+        </tr>*@
+
+    </table>
+    <!-- TDs Work-->
+
+   
+
+    <!-- END-->
+   
+    <a href="Employee">Back</a>
+}

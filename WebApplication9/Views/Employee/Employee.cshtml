@@ -1,0 +1,67 @@
+﻿@model WebApplication9.Context.Admin
+@{
+    ViewBag.Title = "Employee";
+}
+
+   <h3><b>Add Informaition To Client</b></h3>
+
+<br />
+<style>
+    .error{
+        color:red;
+    }
+</style>
+@using (Html.BeginForm("AddEmployee", "Employee", FormMethod.Post))
+{
+    <div class="container">
+        <div class="form-group">
+            @Html.HiddenFor(x => x.ID)
+            <label>Employee Name: </label>
+            @Html.ValidationMessageFor(x => x.EmployeeName,"", new { @class ="error"})
+            @Html.TextBoxFor(x => x.EmployeeName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Client Name: </label>
+            @Html.ValidationMessageFor(x => x.Client, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Client, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Amount: </label>
+            @Html.ValidationMessageFor(x => x.Amount, "", new { @class = "error" })
+            @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Date :</label>
+            @Html.ValidationMessageFor(x => x.Date, "", new { @class = "error" })
+
+            @Html.TextBoxFor(x => x.Date, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            <label>Purchased Item: </label>
+            @Html.ValidationMessageFor(x => x.PurchasedItem, "", new { @class = "error" })
+           @Html.TextBoxFor(x => x.PurchasedItem, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Bill, new { @class = "control-label" })
+            @Html.ValidationMessageFor(x => x.Bill, "", new { @class = "error" })
+
+            <input type="file" name="Bill" />
+        </div>
+
+    @*<div>
+
+
+        <input type="file" name="ImageData" onchange="fileCheck(this);" />
+    </div>*@
+        <div class="form-group">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-danger" type="reset">Cancel</button>
+        </div>
+    </div>
+}
+
