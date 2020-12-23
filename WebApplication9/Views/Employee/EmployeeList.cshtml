@@ -1,4 +1,6 @@
-﻿@model  List<WebApplication9.Context.Admin>
+﻿@*@model IEnumerable<WebApplication9.Models.EmployeeViewModel>*@
+@model  List<WebApplication9.Context.Admin>
+
 @{
     ViewBag.Title = "EmployeeList";
 }
@@ -39,20 +41,13 @@
 
             </tr>
         }
-        @*<tr>
-            <td></td>
-            <td></td>
-            <td>
-                <input type="submit" name="btnExportLicensing" style="width:140px;" value="Export to Excel" id="exportLicensing" class="button" />
-            </td>
-        </tr>*@
 
     </table>
-    <!-- TDs Work-->
+    @*<input type="submit" value="Export to Excel" class="button" />*@
 
-   
 
-    <!-- END-->
-   
-    <a href="Employee">Back</a>
+
+    <a href="@Url.Action("ExportToExcel","Employee")">Export Excel</a>
+
 }
+<a href="Employee">Back</a>
