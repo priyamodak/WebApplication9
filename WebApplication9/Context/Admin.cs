@@ -31,7 +31,7 @@ namespace WebApplication9.Context
         [Required(ErrorMessage = "Required")]
         public string PurchasedItem { get; set; }
 
-        [Required(ErrorMessage = "Required")]
+        
         public string Bill { get; set; }
      
     }
