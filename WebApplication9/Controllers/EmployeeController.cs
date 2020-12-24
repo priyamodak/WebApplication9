@@ -52,7 +52,7 @@ namespace WebApplication9.Controllers
                 dbObj.Entry(obj).State = System.Data.Entity.EntityState.Modified;
                 dbObj.SaveChanges();
             }
-            return View("Employee");
+            return View("EmployeeList");
         }
 
 
